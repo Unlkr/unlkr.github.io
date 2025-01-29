@@ -97,13 +97,17 @@
 <body>
    
 <div class="wrapper">
-<div id="conteudo"></div>
+        
+<div id="menu"></div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  $("#conteudo").load("../menu.html");
+  fetch("../menu.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("menu").innerHTML = data;
+    })
+    .catch(error => console.error("Erro ao carregar o menu:", error));
 </script>
-
 			
 			            <div class="content">
                 <div class="container-fluid">
