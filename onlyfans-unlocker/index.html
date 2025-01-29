@@ -97,12 +97,11 @@
 <body>
    
 <div class="wrapper">
-<div id="menu"></div>
+<div id="conteudo"></div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-  fetch('../menu.html')
-    .then(response => response.text())
-    .then(data => document.getElementById('menu').innerHTML = data);
+  $("#conteudo").load("../menu.html");
 </script>
 
 			
