@@ -97,19 +97,30 @@
 <body>
    
 <div class="wrapper">
-        
-<div id="menu"></div>
+        <div class="sidebar" data-image="../assets/img/sidebar-5.jpg">
+            <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
 
-<script>
-  var xhr = new XMLHttpRequest();
-  xhr.open("GET", "../menu.html", true);
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      document.getElementById("menu").innerHTML = xhr.responseText;
-    }
-  };
-  xhr.send();
-</script>
+        Tip 2: you can also add an image using data-image tag
+    -->
+            <div class="sidebar-wrapper">
+                <div class="logo">
+                    <a href="http://www.creative-tim.com" class="simple-text">
+                        Creative Tim
+                    </a>
+                </div>
+                <ul class="nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="dashboard.html">
+                            <i class="nc-icon nc-chart-pie-35"></i>
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+<object id="menu" data="../menu.html" width="100%" height="auto"></object>
 			
 			            <div class="content">
                 <div class="container-fluid">
