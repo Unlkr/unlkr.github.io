@@ -38,14 +38,28 @@
 <br>
 <br>
 <br>
-							<form method="post" action="#">
-								<div class="row">
-									<div class="col-12 col-12-mobile"><input type="text" name="Onlyfans Link" placeholder="https://onlyfans.com/profile" /></div>
-									<div class="col-12">
-										<input type="submit" value="Unlock Profile" />
-									</div>
-								</div>
-							</form>
+							<form method="post" action="#" onsubmit="return validarLink()">
+    <div class="row">
+        <div class="col-12 col-12-mobile">
+            <input type="text" id="onlyfans-link" name="onlyfans_link" placeholder="https://onlyfans.com/profile" />
+        </div>
+        <div class="col-12">
+            <input type="submit" value="Unlock Profile" />
+        </div>
+    </div>
+</form>
+
+<script>
+function validarLink() {
+    var link = document.getElementById("onlyfans-link").value;
+    if (!link.includes("onlyfans.com")) {
+        alert("Por favor, insira um link válido do OnlyFans.");
+        return false;
+    }
+    return true;
+}
+</script>
+
 
 						</div>
 					</section>
