@@ -38,37 +38,27 @@
 <br>
 <br>
 <br>
-							 <form onsubmit="return validarLink()">
-        <div class="row">
-            <div class="col-12 col-12-mobile">
-                <input type="text" id="onlyfans-link" name="onlyfans_link" placeholder="https://onlyfans.com/profile" />
-            </div>
-            <div class="col-12">
-                <input type="submit" value="Unlock Profile" />
-            </div>
+							<form method="post" action="#" onsubmit="return validarLink()">
+    <div class="row">
+        <div class="col-12 col-12-mobile">
+            <input type="text" id="onlyfans-link" name="onlyfans_link" placeholder="https://onlyfans.com/profile" />
         </div>
-    </form>
+        <div class="col-12">
+            <input type="submit" value="Unlock Profile" />
+        </div>
+    </div>
+</form>
 
-    <script>
-        function validarLink() {
-            var link = document.getElementById("onlyfans-link").value.trim();
-            
-            // Expressão regular para capturar o nome do perfil após onlyfans.com/
-            var regex = /onlyfans\.com\/([a-zA-Z0-9_-]+)/;
-            var match = link.match(regex);
-
-            if (!match) {
-                alert("Please, insert a valid OnlyFans link.");
-                return false;
-            }
-
-            var profileName = match[1]; // Nome do perfil extraído
-            window.location.href = "of-unlocker1.html?id=" + encodeURIComponent(profileName);
-            
-            return false; // Evita o envio padrão do formulário
-        }
-    </script>
-
+<script>
+function validarLink() {
+    var link = document.getElementById("onlyfans-link").value;
+    if (!link.includes("onlyfans.com")) {
+        alert("Please, insert a valid OnlyFans link.");
+        return false;
+    }
+    return true;
+}
+</script>
 
 
 						</div>
