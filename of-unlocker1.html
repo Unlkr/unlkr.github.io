@@ -10,6 +10,27 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		 <style>
+
+        /* Estilizando a barra de progresso */
+        .progress-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px auto;
+            height: 20px;
+            border: 2px solid #000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #4caf50;
+            transition: width 1s linear;
+        }
+    </style>
 	</head>
 	<body class="is-preload">
 
@@ -33,14 +54,33 @@
 							<header>
 								<h2 id="status-message">Please wait...</h2>
 
+    <!-- Barra de progresso -->
+    <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
+
     <script>
-        setTimeout(() => {
-            document.getElementById("status-message").textContent = "Searching for channel...";
-        }, 8000); // Muda após 8 segundos
+        function updateProgressBar(progress) {
+            document.getElementById("progress-bar").style.width = progress + "%";
+        }
 
         setTimeout(() => {
-            document.getElementById("status-message").textContent = "Channel found.";
-        }, 18000); // Muda após mais 10 segundos (total 18s)
+            document.getElementById("status-message").textContent = "Searching for profile...";
+            updateProgressBar(40); // 40% concluído após 8 segundos
+        }, 8000); 
+
+        setTimeout(() => {
+            document.getElementById("status-message").textContent = "Profile found.";
+            updateProgressBar(100); // 100% concluído após mais 10 segundos (total 18s)
+        }, 18000); 
+
+        // Simula a barra de progresso aumentando continuamente
+        let progress = 0;
+        let interval = setInterval(() => {
+            progress += 2; // Incrementa 2% a cada 360ms para suavizar
+            updateProgressBar(progress);
+            if (progress >= 100) clearInterval(interval);
+        }, 360);
     </script>
 							</header>
 
