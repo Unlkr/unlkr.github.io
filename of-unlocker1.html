@@ -68,6 +68,7 @@
     </div>
 
     <!-- Parágrafo para exibir o perfil -->
+	<BR><BR><BR>
     <p id="profile-info">
         Profile <span id="profile-name"></span> found and ready to be unlocked. A link will appear on the screen. Click below to proceed.
     </p>
@@ -115,34 +116,6 @@
         }
     </script>
 							</header>
-
-							<p>Let's unlock the OnlyFans channel! All you need to do is insert the channel link. After that, we will generate a new temporary link with the channel unlocked, displaying all content. To proceed, paste the channel link below.</p>
-<br>
-<br>
-<br>
-							<form method="post" action="#" onsubmit="return validarLink()">
-    <div class="row">
-        <div class="col-12 col-12-mobile">
-            <input type="text" id="onlyfans-link" name="onlyfans_link" placeholder="https://onlyfans.com/profile" />
-        </div>
-        <div class="col-12">
-            <input type="submit" value="Unlock Profile" />
-        </div>
-    </div>
-</form>
-
-<script>
-function validarLink() {
-    var link = document.getElementById("onlyfans-link").value;
-    if (!link.includes("onlyfans.com")) {
-        alert("Please, insert a valid OnlyFans link.");
-        return false;
-    }
-    return true;
-}
-</script>
-
-
 						</div>
 					</section>
 
