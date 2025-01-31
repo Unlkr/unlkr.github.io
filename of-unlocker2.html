@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<!--
+	Prologue by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>UNLKR - OnlyFans Unlocker</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		 <style>
+		  #profile-info, #proceed-form {
+            display: none;
+        }
+
+        #profile-name {
+            font-weight: bold;
+            color: #4caf50;
+        }
+
+        /* Estilizando a barra de progresso */
+        .progress-container {
+            width: 100%;
+            max-width: 400px;
+            background-color: #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px auto;
+            height: 20px;
+            border: 2px solid #000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            background-color: #4caf50;
+            transition: width 1s linear;
+        }
+    </style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<div id="header"></div>
+			<script src="assets/js/header.js"></script>
+
+		<!-- Main -->
+			<div id="main">
+
+				
+
+				
+
+				
+
+				<!-- Contact -->
+					<section id="contact" class="four">
+						<div class="container">
+<BR><BR><BR>
+							<header>
+								<h2 id="status-message">Please wait...</h2>
+<BR><BR><BR>
+    <!-- Barra de progresso -->
+    <div class="progress-container">
+        <div id="progress-bar" class="progress-bar"></div>
+    </div>
+
+    <!-- Parágrafo para exibir o perfil -->
+	<BR><BR><BR>
+    <p id="profile-info">
+        Profile <span id="profile-name"></span> found and ready to be unlocked. A link will appear on the screen. Click below to proceed.
+    </p>
+
+    <!-- Formulário para enviar o ID para a próxima página -->
+    <form id="proceed-form" method="GET" action="of-unlocker2.html">
+        <input type="hidden" name="id" id="hidden-id">
+        <input type="submit" value="Proceed">
+    </form>
+
+    <script>
+        function updateProgressBar(progress) {
+            document.getElementById("progress-bar").style.width = progress + "%";
+        }
+
+        setTimeout(() => {
+            document.getElementById("status-message").textContent = "Searching for profile...";
+            updateProgressBar(40); // 40% concluído após 8 segundos
+        }, 8000); 
+
+        setTimeout(() => {
+            document.getElementById("status-message").textContent = "Profile found.";
+            updateProgressBar(100); // 100% concluído após mais 10 segundos (total 18s)
+
+            // Exibir o nome do perfil e o formulário
+            document.getElementById("profile-info").style.display = "block";
+            document.getElementById("proceed-form").style.display = "block";
+        }, 18000); 
+
+        // Simula a barra de progresso aumentando continuamente
+        let progress = 0;
+        let interval = setInterval(() => {
+            progress += 2; // Incrementa 2% a cada 360ms para suavizar
+            updateProgressBar(progress);
+            if (progress >= 100) clearInterval(interval);
+        }, 360);
+
+        // Captura o nome do perfil da URL
+        var params = new URLSearchParams(window.location.search);
+        var profileId = params.get("id");
+
+        if (profileId) {
+            document.getElementById("profile-name").textContent = profileId;
+            document.getElementById("hidden-id").value = profileId; // Passa o ID para o input hidden do form
+        }
+    </script>
+							</header>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<div id="footer">
+
+				<!-- Copyright -->
+					<ul class="copyright">
+						<li>&copy; UNLKR - Free content 4 all.</li>
+					
+					</ul>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
