@@ -70,14 +70,38 @@
     <!-- Parágrafo para exibir o perfil -->
 	<BR><BR><BR>
     <p id="profile-info">
-        Profile <span id="profile-name"></span> found and ready to be unlocked. A link will appear on the screen. Click below to proceed.
+        Profile <span id="profile-name"></span> Unlocked Successfully. Click in the button below to go to unlocked profile page.
     </p>
 
     <!-- Formulário para enviar o ID para a próxima página -->
-    <form id="proceed-form" method="GET" action="of-unlocker2.html">
-        <input type="hidden" name="id" id="hidden-id">
-        <input type="submit" value="Proceed">
-    </form>
+    <form id="proceed-form">
+    <input type="submit" value="Proceed">
+</form>
+
+<script>
+    function generateRandomString(length) {
+        const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+    }
+
+    document.getElementById("proceed-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        const randomString = generateRandomString(40);
+        const link = `https://onlyfans.com/${randomString}`;
+
+        // Abre o link em uma nova aba
+        window.open(link, '_blank');
+
+        // Redireciona a aba original para of-unlocker3.html
+        window.location.href = "of-unlocker3.html";
+    });
+</script>
+
 
     <script>
         function updateProgressBar(progress) {
